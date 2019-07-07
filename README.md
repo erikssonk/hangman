@@ -1,4 +1,4 @@
-## The Hangman Game
+## The (ugly) Hangman Game
 
 ### Run game in localhost
 run `yarn start` in project folder

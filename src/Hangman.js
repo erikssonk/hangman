@@ -1,16 +1,14 @@
 import React from 'react'
-import {Game } from './Game'
+import Header from './ui/Header'
+import { Game } from './Game'
+
 
 const Hangman = () => {
 	return (
 		<Game>
-			<h1>
-				The Hangman Game 
-			</h1>
+			<Header />
 		</Game>
 	)
 }
-
-
 
 export default Hangman
