@@ -1,13 +1,16 @@
 import React from 'react'
+import {Game } from './Game'
 
 const Hangman = () => {
 	return (
-		<div>
+		<Game>
 			<h1>
-				The Hangman Game
+				The Hangman Game 
 			</h1>
-		</div>
+		</Game>
 	)
 }
+
+
 
 export default Hangman
