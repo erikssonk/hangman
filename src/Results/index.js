@@ -20,11 +20,20 @@ const Wrapper = styled('div')`
 		font-size: 1.5rem;
 		padding: 1.5rem 0;
 	}
+
+	h3 {
+		text-align: center;
+		margin-bottom: 0.5rem;
+	}
+
+	div {
+		margin: 1rem 0;
+	}
 `
 
 const Letter = styled('span')`
 	font-size: 1.25rem;
-	margin: 0 0.5rem;
+	margin: 0.5rem;
 `
 
 const Results = () => {
@@ -40,6 +49,12 @@ const Results = () => {
 					{gameStats.letterPositions.map((letter, index) => <Letter key={index + "_"+letter}>{letter}</Letter>)}
 				</div>
 			)}
+			{gameStats.running && (
+				<div className={"guessedLetters"}>
+					<h3>You have guessed</h3>
+					{gameStats.guessedLetters.map((letter, index) => <Letter key={index + "_"+letter}>{letter}</Letter>)}
+				</div>
+			)}			
 		</Wrapper>
 	)
 }

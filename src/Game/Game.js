@@ -91,13 +91,16 @@ const Game = (props) => {
 
 		if (gameData.letterPositions.join('') === gameData.currentWord) {
 			gameData.message = <h2>Congratz you won the game! :)</h2>
-			gameData.running = false;
-			gameData.won = true;
+			gameData.running = false
+			gameData.won = true
 		}
 	} 
 
 	gameFunction.start = () => {
-		gameData.running = true;
+		gameData.running = true
+		gameData.won = false
+		gameData.guessedLetters = []
+		gameData.message = false
 		gameData.currentWord = getRandomWord()
 		gameFunction.updateLetterPositions()
 		gameFunction.save()
@@ -127,13 +130,13 @@ const Game = (props) => {
 				return
 			} 
 			gameData.guessedLetters.push(event.key.toLowerCase())
-			gameData.message = false;
+			gameData.message = false
 			gameFunction.updateLetterPositions()
 			gameFunction.save()
 			return 
 		})
 
-		gameData.eventSet = true;
+		gameData.eventSet = true
 		gameFunction.save()
 	}
 
