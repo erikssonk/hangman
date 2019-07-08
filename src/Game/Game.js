@@ -37,7 +37,8 @@ const words = ["row",
 	"enjoy",
 	"assessment",
 	"dangerous",
-	"wear out",
+	"wear",
+	"out",
 	"exaggerate",
 	"rebel",
 	"musical",
@@ -75,12 +76,6 @@ const Game = (props) => {
 	const [gameState, setGameState] = useState(defaultGameStats)
 	const [gameData, gameFunction] = gameState
 
-	gameFunction.reset = () => {
-		gameData.running = false;
-		gameData.guessedLetters = [];
-		gameFunction.save()
-	}
-
 	gameFunction.guessLetter = (letter) => {
 		gameData.guessedLetters.push(letter)
 		gameFunction.save()
@@ -93,6 +88,12 @@ const Game = (props) => {
 			}
 			return '_'
 		})
+
+		if (gameData.letterPositions.join('') === gameData.currentWord) {
+			gameData.message = <h2>Congratz you won the game! :)</h2>
+			gameData.running = false;
+			gameData.won = true;
+		}
 	} 
 
 	gameFunction.start = () => {
@@ -115,17 +116,23 @@ const Game = (props) => {
 			}
 
 			if (!event.key.match(/[a-z]/i)) {
-				return 
-			}
-			
-			if (gameData.guessedLetters.indexOf(event.key) === -1) {
-				gameData.guessedLetters.push(event.key.toLowerCase())
-				gameFunction.updateLetterPositions()
+				gameData.message = 'You pressed an invalid key, valid input is a to z'
 				gameFunction.save()
 				return 
 			}
-
+			
+			if (gameData.guessedLetters.indexOf(event.key) >= 0) {
+				gameData.message = 'You have already guessed the letter ' + event.key.toLowerCase()
+				gameFunction.save()
+				return
+			} 
+			gameData.guessedLetters.push(event.key.toLowerCase())
+			gameData.message = false;
+			gameFunction.updateLetterPositions()
+			gameFunction.save()
+			return 
 		})
+
 		gameData.eventSet = true;
 		gameFunction.save()
 	}

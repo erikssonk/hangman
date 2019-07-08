@@ -6,12 +6,13 @@ export const defaultGameStats = [
 		guessedLetters: [],
 		letterPositions: [],
 		currentWord: '',
-		eventSet: false
-
+		eventSet: false,
+		message: false,
+		won: false
 	},{
 		start: () => {},
-		reset: () => {},
 		guessLetter: (letter) => {},
+		updateLetterPositions: ()=> {},
 		save: () => {}
 	}
 ]

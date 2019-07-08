@@ -32,10 +32,12 @@ const Results = () => {
 	return (
 		<Wrapper>
 			<p>This is a very simple hangman game, press the key you want to guess</p>
+			{gameStats.message}
+			{gameStats.won && <h2>The correct word was<br /><br />{gameStats.currentWord}</h2>}
 			{!gameStats.running && <h2>Press any key to begin</h2>}
 			{gameStats.running && (
 				<div>
-					{gameStats.letterPositions.map((letter) => <Letter>{letter}</Letter>)}
+					{gameStats.letterPositions.map((letter, index) => <Letter key={index + "_"+letter}>{letter}</Letter>)}
 				</div>
 			)}
 		</Wrapper>
