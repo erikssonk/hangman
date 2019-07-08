@@ -3,21 +3,28 @@ import styled from '@emotion/styled'
 
 const Nav = styled('nav')`
 	width: 100%;
-	background-color: #e0e0e0;
+	background-color: #8db0dc;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+`
+
+const Title = styled('h1')`
+	font-size: 2rem;
+	padding: 1.125rem;
 `
 
 const Small = styled('span')`
-	font-size: 13px;
+	font-size: 0.95rem;
 	vertical-align: middle;
-	line-height: 1em;
 `
 
 const Header = () => {
 	return (
 		<Nav>
-			<h1>
+			<Title>
 				The <Small>(ugly)</Small> Hangman Game 
-			</h1>
+			</Title>
 		</Nav>
 	)
 }

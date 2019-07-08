@@ -56,7 +56,15 @@ const GlobalStyle = () => {
 
 		body {
 			font-family: 'Montserrat', sans-serif;
-			font-size: 12px;	
+			font-size: 14px;
+		}
+
+		div {
+			box-sizing: border-box;
+		}
+
+		html, body, div#root {
+			height: 100%;
 		}
 
 	`
